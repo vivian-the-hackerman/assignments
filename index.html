@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <p style="font-size: 20px"> Hello World!</p>
+
+    <button id="promptButton" onclick="prompt('Hello World!')">Click me</button>
+
+    <p>
+        <input type="text" id="boxText" placeholder="Press button" />
+        <button onclick="showText()"> Press me</button>
+        <button onclick="eraseText()"> Reset</button>
+
+        <script>
+            function showText() {
+                document.getElementById("boxText").value = "Hello Bac Ba";
+            }
+            function eraseText() {
+                document.getElementById("boxText").value = "";
+            }
+        </script>
+
+
+    </p>
+    <p>
+        Address:
+        <input type="text" id="siteInput" placeholder="Enter a website" />
+
+        <button onclick="goToSite()"> Go </button>
+
+        <script>
+            function goToSite() {
+                let url = document.getElementById("siteInput").value.trim();
+                if (!url.startsWith("http://") && !url.startsWith("https://")) {
+                    url = "https://" + url;
+                }
+
+                window.location.href = url;
+            }
+
+        </script>
+    </p>
+
+    <p>
+        <select id="colorOptions" onchange="textColor()">
+            <option> Change text colors </option>
+            <option value=" red"> Red </option>
+            <option value="green"> Green </option>
+            <option value="blue"> Blue </option>
+            <option value="yellow"> Yellow </option>
+            <option value="pink"> Pink </option>
+        </select>
+
+        <script>
+            function textColor() {
+                let chosenColor = document.getElementById("colorOptions").value;
+
+                document.body.style.color = chosenColor;
+            }
+        </script>
+    </p>
+
+    <p>
+        <div>
+        <input type="text" id="firstNum" placeholder="Type number" />
+        <input type="text" id="secondNum" placeholder="Type number" />
+        <button onclick="sum()"> Add </button>
+        <input type="text" id="result" readonly/>
+        <p style= "color: red;" id="output-area"></p>
+        </div>
+
+       <script>
+                let firstNum = document.getElementById('firstNum');
+                let secondNum = document.getElementById('secondNum');
+                let result = document.getElementById('result');
+
+            function sum() {
+                first = parseInt(firstNum.value);
+                second = parseInt(secondNum.value);
+
+                if (isNaN(first) || isNaN(second)) {
+                    document.getElementById("output-area").innerText = "Oops! Please type numbers."
+                    return;
+                }
+
+                let sum = first + second;
+
+                document.getElementById('result').value= sum;
+             }
+                </script>
+                try typing non-numbers ^^^
+    </p>
+
+    <p>
+        
+    </p>
+
+
+
+
+</body>
+
+</html>
